@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Abhijit Kunjiraman — Senior Data Engineer</title>
-<meta name="description" content="Senior Data Engineer focused on reliable, incremental data platforms across Snowflake, AWS, and Azure." />
+<meta name="description" content="Senior Data Engineer who connects business context, source-system behavior, and cloud data platform design to ship analytics, APIs, and product-ready data pipelines." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -471,6 +471,18 @@
     text-transform: uppercase;
   }
 
+  .work-summary {
+    color: var(--ink-2);
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 78ch;
+    margin: 0 0 22px;
+  }
+  .work-summary b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
   .achievements {
     list-style: none;
     padding: 0;
@@ -707,12 +719,12 @@
   <div class="wrap">
     <div class="eyebrow">Abhijit Kunjiraman &nbsp;·&nbsp; Senior Data Engineer</div>
     <h1 class="title">
-      <span>Building reliable</span>
-      <span>data platforms for</span>
-      <span><em>real-world scale.</em></span>
+      <span>I turn business</span>
+      <span>context into data</span>
+      <span><em>products that ship.</em></span>
     </h1>
     <p class="lede">
-      I’m a Senior Data Engineer with six years of experience building incremental pipelines, Snowflake data models, and cloud-native ingestion systems across AWS and Azure. I focus on platforms that are safe to replay, easy to operate, and trusted by the teams that depend on them.
+      I build data platforms by first understanding the business process, the source-system behavior, and the product or reporting feature that depends on the data. Then I design pipelines, models, APIs, and release workflows that make those features faster to build, safer to change, and easier to trust in production.
     </p>
     <div class="hero-meta">
       <div class="hero-meta-item">
@@ -720,16 +732,16 @@
         <div class="value">ENGIE Impact · Boston</div>
       </div>
       <div class="hero-meta-item">
-        <div class="label">Core stack</div>
-        <div class="value">Snowflake · AWS · Azure</div>
+        <div class="label">Business domains</div>
+        <div class="value">Billing · carbon · reporting</div>
       </div>
       <div class="hero-meta-item">
-        <div class="label">Open to</div>
+        <div class="label">Core platform</div>
+        <div class="value">Snowflake · AWS · Azure · dbt</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Best fit</div>
         <div class="value" style="color:var(--accent)">Senior Data Engineer roles</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="label">Contact</div>
-        <div class="value"><a href="mailto:abhijitrk97@gmail.com">abhijitrk97@gmail.com</a></div>
       </div>
     </div>
   </div>
@@ -740,36 +752,71 @@
   <div class="wrap">
     <div class="section-header reveal">
       <div class="num">01 / impact</div>
-      <h2>Selected outcomes from platforms I have built, modernized, and owned.</h2>
+      <h2>Business outcomes created by data platforms, not just pipelines.</h2>
     </div>
 
     <div class="metrics reveal">
       <div class="metric">
-        <div class="label">Records processed daily</div>
+        <div class="label">Daily data scale</div>
         <div class="value">500<span class="unit">M+</span></div>
-        <div class="sub">production AWS ingestion</div>
+        <div class="sub">records powering analytics</div>
       </div>
       <div class="metric">
-        <div class="label">Release SQL reduction</div>
+        <div class="label">Release effort reduced</div>
         <div class="value">97<span class="unit">%</span></div>
-        <div class="sub down">95K → 1.5K lines</div>
+        <div class="sub down">smaller, reviewable deploys</div>
       </div>
       <div class="metric">
-        <div class="label">Reprocessing time cut</div>
+        <div class="label">Backfill speed improved</div>
         <div class="value">−71<span class="unit">%</span></div>
-        <div class="sub down">10.5h → 3h per run</div>
+        <div class="sub down">faster recovery and replay</div>
       </div>
       <div class="metric">
-        <div class="label">Annual savings</div>
+        <div class="label">Tooling cost avoided</div>
         <div class="value">$50<span class="unit">K</span></div>
         <div class="sub">direct Snowflake sourcing</div>
       </div>
     </div>
 
+    <div class="arch-intro reveal">
+      <div class="num">↳ operating model</div>
+      <p>I do not start with the pipeline. I start with the feature, report, workflow, or business decision the data is supposed to support. That changes the engineering conversation from "move these rows" to "make this capability reliable enough for people to build on."</p>
+    </div>
+
+    <div class="caps reveal">
+      <div class="cap">
+        <div class="num">/ business</div>
+        <h4>Understand the workflow first</h4>
+        <p>I clarify what the business is trying to accomplish, who consumes the data, which decisions or product features depend on it, and what correctness means in that context.</p>
+        <div class="tools"><b>Examples</b> · billing rules · carbon calculations · client reporting · operational analytics</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ data</div>
+        <h4>Model how the data behaves</h4>
+        <p>I look for the hard parts early: grain, keys, deletes, late-arriving updates, source-system ownership, historical corrections, and the difference between what a field is called and what it actually means.</p>
+        <div class="tools"><b>Patterns</b> · CDC · slowly changing data · auditability · reconciliation · contracts</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ platform</div>
+        <h4>Build reusable foundations</h4>
+        <p>I turn repeated asks into shared data products: governed warehouse layers, enrichment APIs, reusable validation, deployment automation, and pipeline templates that other teams can build from.</p>
+        <div class="tools"><b>Outputs</b> · curated models · APIs · batch services · deployment workflows · backfills</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ delivery</div>
+        <h4>Ship for feature velocity</h4>
+        <p>The goal is not only to load data successfully. The goal is to help product, analytics, engineering, and operations teams launch features faster because the data layer is understandable, tested, and dependable.</p>
+        <div class="tools"><b>Result</b> · fewer one-off queries · faster releases · clearer ownership · safer change</div>
+      </div>
+    </div>
+
     <!-- Architectures sub-section -->
     <div class="arch-intro reveal">
-      <div class="num">↳ how the systems work</div>
-      <p>Two production systems I have worked on end to end. Different clouds, different ingestion patterns, same engineering goal: predictable data movement, clear ownership, and recovery paths that do not depend on guesswork.</p>
+      <div class="num">↳ systems that enabled product work</div>
+      <p>These are not diagrams for the sake of architecture. Each system exists to make a business capability easier to ship: carbon and consumption analytics, governed warehouse models, reusable enrichment, reporting, and operational workflows that need trustworthy data at scale.</p>
     </div>
 
     <!-- Architecture diagrams: two distinct projects -->
@@ -1068,7 +1115,7 @@
   <div class="wrap">
     <div class="section-header reveal">
       <div class="num">02 / selected work</div>
-      <h2>Selected work with business and engineering impact.</h2>
+      <h2>Selected work where business context shaped the engineering design.</h2>
     </div>
 
     <div class="work-list">
@@ -1081,16 +1128,18 @@
         <div class="work-body">
           <h3>ENGIE Impact</h3>
           <div class="role">Senior Data Engineer · DEA team</div>
+          <p class="work-summary">At ENGIE Impact, my work sits between <b>business process, product delivery, and platform engineering</b>. The systems I build support billing, carbon accounting, consumption analytics, reporting, and internal data products, so the design work is not only about throughput. It is about understanding how the data is used, where definitions can drift, and how to make changes safe when product requirements evolve.</p>
           <ul class="achievements">
-            <li>Served as the <b>accountable engineering owner</b> for core data delivery, bringing work previously split across an outsourced 7-person data engineering team into a focused internal ownership model.</li>
-            <li>Built and operated an event-driven AWS ingestion platform processing <b>500M+ records/day</b> into PostgreSQL and InfluxDB for billing, reporting, and client-facing analytics.</li>
-            <li>Replaced legacy "deploy-everything" Snowflake releases with a manifest-driven, change-only CI/CD process, reducing release SQL from <b>~95K lines to 1.5K–3K lines</b> across 247 files.</li>
-            <li>Proposed and designed direct Snowflake sourcing, helping retire Matillion for <b>$40K–$50K in annual savings</b> and moving data availability from once-daily batches toward on-demand access.</li>
-            <li>Designed a CDC-style ingestion pattern with hash-based change detection, reducing reprocessing time from <b>10.5 hours to 3 hours</b> while preserving replay safety.</li>
-            <li>Productized FX and geography enrichment through batch REST and GraphQL APIs, replacing repeated one-off Snowflake lookups with a shared internal service.</li>
-            <li>Modeled Snowflake external stages on Azure Blob with a RAW contract view layer, then used dbt to build Stage, Dim, and Fact models with repeatable backfills.</li>
-            <li>Implemented Kafka and Spark ingestion with schema validation, deduplication, and idempotent writes, improving end-to-end performance by <b>30–50%</b>.</li>
-            <li>Unblocked long-running initiatives, including an RDS migration and Unified UOM workstream, by leading root-cause analysis across data flows, models, and ownership gaps.</li>
+            <li>Served as the <b>accountable engineering owner</b> for core data delivery, converting work previously split across an outsourced 7-person team into a focused internal ownership model with clearer requirements, priorities, and production accountability.</li>
+            <li>Built and operated an event-driven AWS ingestion platform processing <b>500M+ records/day</b> into PostgreSQL and InfluxDB, supporting billing, reporting, carbon analytics, and client-facing dashboards used across enterprise accounts.</li>
+            <li>Partnered with product and engineering stakeholders to translate feature needs into data contracts, source-to-target logic, validation rules, and release plans, reducing ambiguity before code was written.</li>
+            <li>Replaced legacy "deploy-everything" Snowflake releases with a manifest-driven, change-only CI/CD process, reducing release SQL from <b>~95K lines to 1.5K–3K lines</b> across 247 files and making data-platform changes easier to review and ship.</li>
+            <li>Proposed and designed direct Snowflake sourcing, helping retire Matillion for <b>$40K–$50K in annual savings</b> while moving teams from rigid once-daily extracts toward more flexible, on-demand access patterns.</li>
+            <li>Designed a CDC-style ingestion pattern with hash-based change detection, reducing reprocessing time from <b>10.5 hours to 3 hours</b> and making backfills, corrections, and late-arriving updates safer to run.</li>
+            <li>Productized FX and geography enrichment through batch REST and GraphQL APIs, turning repeated lookup logic into a shared internal service that product teams could reuse instead of rebuilding one-off Snowflake queries.</li>
+            <li>Modeled Snowflake external stages on Azure Blob with a RAW contract view layer, then used dbt to build Stage, Dim, and Fact models that gave analytics and downstream services a consistent source of truth.</li>
+            <li>Implemented Kafka and Spark ingestion with schema validation, deduplication, and idempotent writes, improving end-to-end performance by <b>30–50%</b> while keeping failure recovery predictable.</li>
+            <li>Unblocked long-running initiatives, including an RDS migration and Unified UOM workstream, by tracing issues across data flows, source behavior, model assumptions, and ownership gaps until the path to release was clear.</li>
           </ul>
           <div class="stack">
             <span>Snowflake</span><span>dbt</span><span>AWS</span><span>Azure DevOps</span>
@@ -1108,6 +1157,7 @@
         <div class="work-body">
           <h3>Technocrat Services</h3>
           <div class="role">Data Engineer</div>
+          <p class="work-summary">Earlier in my career, I focused on building the fundamentals: dependable ETL, dimensional models, and cloud data processing that gave analysts and operations teams better access to business metrics.</p>
           <ul class="achievements">
             <li>Migrated sales ETL workloads from Amazon Redshift to PostgreSQL by redesigning extraction workflows, improving query performance by <b>~50%</b> and cutting pipeline runtime by <b>~60%</b>.</li>
             <li>Built Airflow, Spark, and SQL pipelines across S3, Athena, Glue, and Redshift, partnering with analysts to model fact and dimension tables that improved operational reporting and reduced waste by <b>~6%</b>.</li>
@@ -1128,43 +1178,57 @@
   <div class="wrap">
     <div class="section-header reveal">
       <div class="num">03 / capabilities</div>
-      <h2>Where I add the most value.</h2>
+      <h2>Where I add the most value across product and data teams.</h2>
     </div>
 
     <div class="caps reveal">
       <div class="cap">
         <div class="num">/ 01</div>
-        <h4>Modern data warehouse architecture</h4>
-        <p>Designing Snowflake and cloud warehouse patterns with clear RAW, Stage, Dim, and Fact layers, contract-driven ingestion, and backfills that can be run safely when requirements change.</p>
-        <div class="tools"><b>Snowflake</b> · <b>dbt</b> · PostgreSQL · BigQuery · Redshift · MS SQL Server</div>
+        <h4>Business and data translation</h4>
+        <p>I turn vague requirements into concrete data questions: what is the grain, what is the business definition, who owns the source, what changes over time, and what needs to be true for the feature to be trusted?</p>
+        <div class="tools"><b>Strengths</b> · requirements · source analysis · definitions · stakeholder alignment</div>
       </div>
 
       <div class="cap">
         <div class="num">/ 02</div>
-        <h4>Reliable ingestion and processing</h4>
-        <p>Building incremental pipelines with CDC patterns, hash-based change detection, validation, deduplication, and idempotent writes so failures are recoverable instead of chaotic.</p>
-        <div class="tools"><b>Airflow</b> · <b>Kafka</b> · Spark · ADF · Step Functions · Lambda · Glue</div>
+        <h4>Product-ready data modeling</h4>
+        <p>I design Snowflake and warehouse layers that are usable by applications, APIs, dashboards, and analysts, not just technically normalized. The goal is clear contracts, consistent naming, and models that match how the business works.</p>
+        <div class="tools"><b>Snowflake</b> · <b>dbt</b> · RAW · Stage · Dim · Fact · semantic consistency</div>
       </div>
 
       <div class="cap">
         <div class="num">/ 03</div>
-        <h4>Release engineering for data</h4>
-        <p>Creating manifest-driven, change-only deployment workflows that make Snowflake releases smaller, reviewable, and closer to how software teams ship application code.</p>
-        <div class="tools"><b>Azure DevOps</b> · Terraform · Liquibase · Jenkins · Python tooling · Git</div>
+        <h4>Incremental ingestion and change handling</h4>
+        <p>I build pipelines that understand change: updates, deletes, late data, replays, reprocessing, and corrections. This is what allows product teams to keep iterating without turning every data change into a production incident.</p>
+        <div class="tools"><b>Patterns</b> · CDC · hashing · dedupe · idempotency · backfills · reconciliation</div>
       </div>
 
       <div class="cap">
         <div class="num">/ 04</div>
-        <h4>Cross-functional technical ownership</h4>
-        <p>Stepping into ambiguous projects, aligning product and engineering expectations, finding the root cause across systems, and turning unclear ownership into shipped outcomes.</p>
-        <div class="tools"><b>Stakeholder partnership</b> · technical writing · estimation · architecture review</div>
+        <h4>Reusable data services</h4>
+        <p>When multiple teams repeat the same lookup, calculation, or enrichment, I prefer turning it into a shared service or governed model. That gives feature teams one dependable path instead of many inconsistent implementations.</p>
+        <div class="tools"><b>APIs</b> · REST · GraphQL · enrichment · reference data · batch services</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ 05</div>
+        <h4>Quality, auditability, and recovery</h4>
+        <p>I design validation, quarantine paths, reason-coded errors, logging, and replay behavior into the system from the beginning so teams can explain what happened, fix the data, and recover without guessing.</p>
+        <div class="tools"><b>Controls</b> · Pydantic · validation · observability · lineage · operational support</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ 06</div>
+        <h4>Release engineering for data platforms</h4>
+        <p>I make data changes easier to ship by bringing software-engineering discipline into database deployments: manifests, smaller diffs, environment promotion, validation gates, and CI/CD workflows that reduce release risk.</p>
+        <div class="tools"><b>Delivery</b> · Azure DevOps · Terraform · Liquibase · Jenkins · Git · Python tooling</div>
       </div>
     </div>
 
     <div class="philosophy reveal">
       <blockquote>
-        The goal is not the cleverest pipeline.<br>
-        The goal is a system people can <em>trust, operate, and recover</em>.
+        The best data platform is not just stable.<br>
+        It makes the next <em>feature, report, API, or decision</em> easier to ship.
       </blockquote>
       <div class="attrib">— engineering principle</div>
     </div>
@@ -1176,10 +1240,10 @@
   <div class="wrap">
     <div class="section-header reveal" style="border-top: none; padding-top: 0; margin-bottom: 56px;">
       <div class="num">04 / contact</div>
-      <h2 style="font-size: clamp(28px, 3vw, 36px);">Open to senior data engineering and analytics engineering roles.</h2>
+      <h2 style="font-size: clamp(28px, 3vw, 36px);">Open to senior data engineering roles where data platform work directly supports product, analytics, and business outcomes.</h2>
     </div>
     <div class="contact-grid reveal">
-      <h2>Let’s <em>build something reliable.</em></h2>
+      <h2>Let’s <em>build useful data.</em></h2>
       <div class="links">
         <a href="mailto:abhijitrk97@gmail.com"><span>email</span><span>abhijitrk97@gmail.com →</span></a>
         <a href="tel:+18572505275"><span>phone</span><span>+1 (857) 250-5275 →</span></a>
@@ -1194,7 +1258,7 @@
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
     <span>© 2026 Abhijit Kunjiraman · Boston, MA</span>
-    <span class="right">built carefully · static site · no trackers</span>
+    <span class="right">built carefully · business-aware data engineering · no trackers</span>
   </div>
 </footer>
 
