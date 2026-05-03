@@ -4,19 +4,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Abhijit Kunjiraman — Senior Data Engineer</title>
-<meta name="description" content="Senior Data Engineer who connects product needs, source-system behavior, and cloud data platform design to ship analytics, APIs, and product-ready data pipelines." />
+<meta name="description" content="Senior Data Engineer who connects business context, source-system behavior, and cloud data platform design to ship analytics, APIs, and product-ready data pipelines." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script>
-  // Mark <html> as JS-enabled before first paint so reveal hiding only applies when JS can reveal it.
+  // Mark <html> as JS-enabled BEFORE first paint so reveal hiding kicks in
   document.documentElement.classList.add('js');
 </script>
-
 <style>
   :root {
+    /* Palette — warm near-black with citron accent */
     --bg:        #0e0f0c;
     --bg-2:      #15170f;
     --panel:     #181a13;
@@ -28,7 +28,7 @@
     --ink-3:     #8a8b80;
     --ink-4:     #5a5c52;
 
-    --accent:    #d6f24a;
+    --accent:    #d6f24a;      /* citron / oscilloscope green */
     --accent-2:  #a8cf2a;
     --warn:      #f2b84a;
     --good:      #6fdf8c;
@@ -41,8 +41,8 @@
     --gap: clamp(20px, 4vw, 56px);
   }
 
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
+  *,*::before,*::after { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
   html { scroll-behavior: smooth; }
 
   body {
@@ -56,10 +56,10 @@
     overflow-x: hidden;
   }
 
+  /* Subtle film-grain noise background */
   body::before {
     content: "";
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     pointer-events: none;
     z-index: 1;
     opacity: 0.035;
@@ -67,13 +67,12 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
+  /* Soft radial glow behind hero */
   body::after {
     content: "";
     position: fixed;
-    top: -200px;
-    right: -200px;
-    width: 700px;
-    height: 700px;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
     background: radial-gradient(circle at center, rgba(214, 242, 74, 0.12), transparent 60%);
     pointer-events: none;
     z-index: 0;
@@ -81,27 +80,8 @@
   }
 
   a { color: inherit; text-decoration: none; }
-  a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-  }
 
   ::selection { background: var(--accent); color: var(--bg); }
-
-  .skip-link {
-    position: absolute;
-    left: 16px;
-    top: -44px;
-    background: var(--accent);
-    color: var(--bg);
-    padding: 8px 12px;
-    z-index: 100;
-    font-family: var(--mono);
-    font-size: 12px;
-    border-radius: 3px;
-  }
-
-  .skip-link:focus { top: 16px; }
 
   .wrap {
     max-width: var(--maxw);
@@ -114,36 +94,26 @@
   /* ---------- Top status bar ---------- */
   .statusbar {
     border-bottom: 1px solid var(--line);
-    background: rgba(14, 15, 12, 0.6);
+    background: rgba(14,15,12,0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
+    position: sticky; top: 0;
     z-index: 50;
   }
-
   .statusbar-inner {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 24px;
     padding: 14px 0;
     font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-3);
+    gap: 16px;
   }
-
-  .status-left {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    min-width: 0;
-  }
-
+  .status-left { display: flex; gap: 24px; align-items: center; }
   .status-dot {
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--good);
     box-shadow: 0 0 0 0 rgba(111, 223, 140, 0.5);
@@ -151,41 +121,15 @@
     margin-right: 8px;
     vertical-align: 1px;
   }
-
   @keyframes pulse {
-    0%   { box-shadow: 0 0 0 0 rgba(111, 223, 140, 0.45); }
-    70%  { box-shadow: 0 0 0 8px rgba(111, 223, 140, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(111, 223, 140, 0); }
+    0%   { box-shadow: 0 0 0 0 rgba(111,223,140,0.45); }
+    70%  { box-shadow: 0 0 0 8px rgba(111,223,140,0); }
+    100% { box-shadow: 0 0 0 0 rgba(111,223,140,0); }
   }
-
   .status-meta { display: flex; gap: 20px; }
   .status-meta span { color: var(--ink-3); }
   .status-meta b { color: var(--ink-2); font-weight: 500; }
-
-  .status-nav {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    white-space: nowrap;
-  }
-
-  .status-nav a {
-    color: var(--ink-3);
-    transition: color 0.25s ease;
-  }
-
-  .status-nav a:hover { color: var(--accent); }
-
-  .status-time {
-    color: var(--ink-3);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-
-  @media (max-width: 920px) {
-    .statusbar-inner { grid-template-columns: 1fr auto; }
-    .status-nav { display: none; }
-  }
+  .status-time { color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
   @media (max-width: 720px) {
     .status-meta { display: none; }
@@ -210,7 +154,6 @@
     opacity: 0;
     animation: fadeUp 0.7s ease-out 0.1s forwards;
   }
-
   .eyebrow::before {
     content: "";
     width: 28px;
@@ -228,21 +171,18 @@
     max-width: 18ch;
     font-variation-settings: "opsz" 144, "SOFT" 50;
   }
-
   h1.title em {
     font-style: italic;
     color: var(--accent);
     font-weight: 300;
     font-variation-settings: "opsz" 144, "SOFT" 100;
   }
-
   h1.title > span {
     display: inline-block;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
-
   h1.title > span:nth-child(1) { animation-delay: 0.20s; }
   h1.title > span:nth-child(2) { animation-delay: 0.32s; }
   h1.title > span:nth-child(3) { animation-delay: 0.44s; }
@@ -274,7 +214,6 @@
     opacity: 0;
     animation: fadeUp 0.8s ease-out 0.8s forwards;
   }
-
   .hero-meta-item .label {
     font-family: var(--mono);
     font-size: 11px;
@@ -283,20 +222,17 @@
     color: var(--ink-4);
     margin-bottom: 8px;
   }
-
   .hero-meta-item .value {
     font-family: var(--mono);
     font-size: 13px;
     color: var(--ink);
   }
-
-  .hero-meta-item .value a:hover { color: var(--accent); }
+  .hero-meta-item .value a:hover {
+    color: var(--accent);
+  }
 
   /* ---------- Section primitives ---------- */
-  section {
-    padding: clamp(70px, 10vh, 110px) 0;
-    position: relative;
-  }
+  section { padding: clamp(70px, 10vh, 110px) 0; position: relative; }
 
   .section-header {
     display: grid;
@@ -307,14 +243,12 @@
     margin-bottom: 64px;
     align-items: baseline;
   }
-
   .section-header .num {
     font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-4);
     letter-spacing: 0.08em;
   }
-
   .section-header h2 {
     font-family: var(--serif);
     font-weight: 400;
@@ -324,13 +258,11 @@
     margin: 0;
     max-width: 22ch;
   }
-
   .section-header h2 em {
     font-style: italic;
     color: var(--accent);
     font-weight: 300;
   }
-
   @media (max-width: 720px) {
     .section-header { grid-template-columns: 1fr; gap: 16px; }
   }
@@ -345,15 +277,12 @@
     overflow: hidden;
     background: var(--panel);
   }
-
   .metric {
     padding: 28px 24px;
     border-right: 1px solid var(--line);
     position: relative;
   }
-
   .metric:last-child { border-right: none; }
-
   .metric .label {
     font-family: var(--mono);
     font-size: 11px;
@@ -362,7 +291,6 @@
     color: var(--ink-4);
     margin-bottom: 14px;
   }
-
   .metric .value {
     font-family: var(--serif);
     font-size: clamp(32px, 3.6vw, 48px);
@@ -372,21 +300,18 @@
     letter-spacing: -0.02em;
     font-variation-settings: "opsz" 144;
   }
-
   .metric .value .unit {
     font-size: 0.5em;
     color: var(--ink-3);
     margin-left: 4px;
     letter-spacing: 0;
   }
-
   .metric .sub {
     font-family: var(--mono);
     font-size: 11px;
     color: var(--accent);
     margin-top: 12px;
   }
-
   .metric .sub.down { color: var(--accent); }
 
   @media (max-width: 880px) {
@@ -394,7 +319,6 @@
     .metric:nth-child(2) { border-right: none; }
     .metric:nth-child(1), .metric:nth-child(2) { border-bottom: 1px solid var(--line); }
   }
-
   @media (max-width: 460px) {
     .metrics { grid-template-columns: 1fr; }
     .metric { border-right: none; border-bottom: 1px solid var(--line); }
@@ -410,14 +334,12 @@
     gap: 48px;
     align-items: baseline;
   }
-
   .arch-intro .num {
     font-family: var(--mono);
     font-size: 11px;
     color: var(--ink-4);
     letter-spacing: 0.06em;
   }
-
   .arch-intro p {
     margin: 0;
     color: var(--ink-2);
@@ -428,7 +350,6 @@
     max-width: 56ch;
     font-style: italic;
   }
-
   @media (max-width: 720px) {
     .arch-intro { grid-template-columns: 1fr; gap: 14px; }
   }
@@ -439,14 +360,12 @@
     flex-direction: column;
     gap: 28px;
   }
-
   .arch {
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 4px;
     overflow: hidden;
   }
-
   .arch-head {
     display: flex;
     justify-content: space-between;
@@ -456,7 +375,6 @@
     flex-wrap: wrap;
     gap: 12px;
   }
-
   .arch-head .arch-title {
     font-family: var(--serif);
     font-size: 19px;
@@ -464,7 +382,6 @@
     color: var(--ink);
     letter-spacing: -0.005em;
   }
-
   .arch-head .arch-title em {
     color: var(--ink-3);
     font-style: normal;
@@ -476,7 +393,6 @@
     padding-left: 12px;
     border-left: 1px solid var(--line-2);
   }
-
   .arch-head .arch-meta {
     font-family: var(--mono);
     font-size: 11px;
@@ -487,22 +403,17 @@
     gap: 18px;
     align-items: center;
   }
-
-  .arch-head .arch-meta .status-tag { color: var(--good); }
-  .arch-head .arch-meta .status-tag.live { color: var(--accent); }
-
+  .arch-head .arch-meta .status-tag {
+    color: var(--good);
+  }
+  .arch-head .arch-meta .status-tag.live {
+    color: var(--accent);
+  }
   .arch-body {
     padding: 36px 28px 28px;
     overflow-x: auto;
   }
-
-  .arch-body svg {
-    width: 100%;
-    min-width: 720px;
-    height: auto;
-    display: block;
-  }
-
+  .arch-body svg { width: 100%; min-width: 720px; height: auto; display: block; }
   .arch-foot {
     padding: 16px 28px 22px;
     border-top: 1px solid var(--line);
@@ -512,31 +423,17 @@
     letter-spacing: 0.02em;
     line-height: 1.7;
   }
-
-  .arch-foot b {
-    color: var(--accent);
-    font-weight: 500;
-  }
+  .arch-foot b { color: var(--accent); font-weight: 500; }
 
   @media (max-width: 720px) {
     .arch-head { padding: 18px 18px 14px; }
-    .arch-head .arch-title em {
-      display: block;
-      margin-left: 0;
-      padding-left: 0;
-      border-left: none;
-      margin-top: 4px;
-    }
+    .arch-head .arch-title em { display: block; margin-left: 0; padding-left: 0; border-left: none; margin-top: 4px; }
     .arch-body { padding: 24px 18px 20px; }
     .arch-foot { padding: 14px 18px 18px; }
   }
 
-  /* ---------- Work entries ---------- */
-  .work-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  /* ---------- Work entries (timeline-y) ---------- */
+  .work-list { display: flex; flex-direction: column; gap: 0; }
 
   .work-item {
     display: grid;
@@ -546,7 +443,6 @@
     border-top: 1px solid var(--line);
     transition: background 0.4s ease;
   }
-
   .work-item:hover { background: rgba(214, 242, 74, 0.015); }
   .work-item:first-child { border-top: none; padding-top: 8px; }
 
@@ -555,13 +451,7 @@
     font-size: 12px;
     color: var(--ink-3);
   }
-
-  .work-meta .period {
-    color: var(--ink-2);
-    margin-bottom: 6px;
-    display: block;
-  }
-
+  .work-meta .period { color: var(--ink-2); margin-bottom: 6px; display: block; }
   .work-meta .place { color: var(--ink-4); }
 
   .work-body h3 {
@@ -572,7 +462,6 @@
     letter-spacing: -0.005em;
     color: var(--ink);
   }
-
   .work-body .role {
     font-family: var(--mono);
     font-size: 12px;
@@ -589,7 +478,6 @@
     max-width: 78ch;
     margin: 0 0 22px;
   }
-
   .work-summary b {
     color: var(--ink);
     font-weight: 600;
@@ -603,7 +491,6 @@
     flex-direction: column;
     gap: 14px;
   }
-
   .achievements li {
     padding-left: 22px;
     position: relative;
@@ -611,7 +498,6 @@
     font-size: 14.5px;
     line-height: 1.6;
   }
-
   .achievements li::before {
     content: "→";
     position: absolute;
@@ -621,11 +507,10 @@
     font-family: var(--mono);
     font-size: 13px;
   }
-
   .achievements li b {
     color: var(--ink);
     font-weight: 600;
-    background: linear-gradient(180deg, transparent 60%, rgba(214, 242, 74, 0.18) 60%);
+    background: linear-gradient(180deg, transparent 60%, rgba(214,242,74,0.18) 60%);
     padding: 0 2px;
   }
 
@@ -635,7 +520,6 @@
     flex-wrap: wrap;
     gap: 6px;
   }
-
   .stack span {
     font-family: var(--mono);
     font-size: 11px;
@@ -645,17 +529,13 @@
     color: var(--ink-3);
     transition: border-color 0.25s ease, color 0.25s ease;
   }
-
-  .stack span:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .stack span:hover { border-color: var(--accent); color: var(--accent); }
 
   @media (max-width: 720px) {
     .work-item { grid-template-columns: 1fr; gap: 16px; }
   }
 
-  /* ---------- Capabilities ---------- */
+  /* ---------- Capabilities (skills reframed) ---------- */
   .caps {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -664,13 +544,11 @@
     border-radius: 4px;
     background: var(--panel);
   }
-
   .cap {
     padding: 32px;
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
-
   .cap:nth-child(2n) { border-right: none; }
   .cap:nth-last-child(-n+2) { border-bottom: none; }
 
@@ -681,7 +559,6 @@
     letter-spacing: 0.06em;
     margin-bottom: 14px;
   }
-
   .cap h4 {
     font-family: var(--serif);
     font-weight: 500;
@@ -689,25 +566,19 @@
     margin: 0 0 14px;
     letter-spacing: -0.005em;
   }
-
   .cap p {
     color: var(--ink-3);
     font-size: 13.5px;
     margin: 0 0 18px;
     line-height: 1.55;
   }
-
   .cap .tools {
     font-family: var(--mono);
     font-size: 11.5px;
     color: var(--ink-2);
     line-height: 1.6;
   }
-
-  .cap .tools b {
-    color: var(--accent);
-    font-weight: 500;
-  }
+  .cap .tools b { color: var(--accent); font-weight: 500; }
 
   @media (max-width: 720px) {
     .caps { grid-template-columns: 1fr; }
@@ -715,57 +586,12 @@
     .cap:nth-last-child(2) { border-bottom: 1px solid var(--line); }
   }
 
-  .tech-stack {
-    margin-top: 28px;
-    padding: 28px 32px;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    background: var(--panel);
-  }
-
-  .tech-stack .num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-4);
-    letter-spacing: 0.06em;
-    margin-bottom: 14px;
-  }
-
-  .tech-stack h4 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 19px;
-    margin: 0 0 14px;
-    letter-spacing: -0.005em;
-  }
-
-  .tech-stack p {
-    color: var(--ink-3);
-    font-size: 13.5px;
-    margin: 0 0 18px;
-    line-height: 1.55;
-    max-width: 76ch;
-  }
-
-  .tech-stack .tools {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--ink-2);
-    line-height: 1.75;
-  }
-
-  .tech-stack .tools b {
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  /* ---------- Philosophy ---------- */
+  /* ---------- Philosophy / quote block ---------- */
   .philosophy {
     border-top: 1px solid var(--line);
     padding-top: 56px;
     margin-top: 24px;
   }
-
   .philosophy blockquote {
     font-family: var(--serif);
     font-weight: 300;
@@ -775,12 +601,7 @@
     max-width: 26ch;
     letter-spacing: -0.01em;
   }
-
-  .philosophy blockquote em {
-    color: var(--accent);
-    font-style: italic;
-  }
-
+  .philosophy blockquote em { color: var(--accent); font-style: italic; }
   .philosophy .attrib {
     margin-top: 24px;
     font-family: var(--mono);
@@ -795,14 +616,12 @@
     padding: clamp(80px, 12vh, 140px) 0 clamp(40px, 6vh, 70px);
     border-top: 1px solid var(--line);
   }
-
   .contact-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 64px;
     align-items: end;
   }
-
   .contact h2 {
     font-family: var(--serif);
     font-weight: 400;
@@ -812,13 +631,7 @@
     margin: 0;
     font-variation-settings: "opsz" 144, "SOFT" 50;
   }
-
-  .contact h2 em {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 300;
-  }
-
+  .contact h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
   .contact .links {
     display: flex;
     flex-direction: column;
@@ -826,36 +639,28 @@
     font-family: var(--mono);
     font-size: 14px;
   }
-
   .contact .links a {
     display: flex;
     justify-content: space-between;
-    gap: 18px;
     padding: 14px 0;
     border-bottom: 1px solid var(--line);
     color: var(--ink);
     transition: color 0.25s ease, padding 0.25s ease;
   }
-
   .contact .links a:hover {
     color: var(--accent);
     padding-left: 8px;
   }
-
   .contact .links a span:last-child {
     color: var(--ink-4);
     transition: color 0.25s ease, transform 0.25s ease;
-    text-align: right;
   }
-
   .contact .links a:hover span:last-child {
     color: var(--accent);
     transform: translateX(4px);
   }
-
   @media (max-width: 720px) {
     .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .contact .links a { align-items: baseline; }
   }
 
   footer {
@@ -870,33 +675,29 @@
     gap: 12px;
     letter-spacing: 0.04em;
   }
-
   footer .right { color: var(--ink-3); }
 
-  /* ---------- Reveal-on-scroll ---------- */
+  /* ---------- Reveal-on-scroll ----------
+     Only hide when JS confirms it can reveal (.js class on <html>),
+     and never hide for users who prefer reduced motion. */
   html.js .reveal {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
-
   html.js .reveal.in {
     opacity: 1;
     transform: translateY(0);
   }
-
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
     html.js .reveal { opacity: 1; transform: none; transition: none; }
     h1.title > span, .eyebrow, .lede, .hero-meta { opacity: 1 !important; transform: none !important; animation: none !important; }
     .status-dot { animation: none !important; }
-    .flow-dots { display: none; }
   }
 </style>
 </head>
 
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ========== Sticky terminal-style status bar ========== -->
 <div class="statusbar">
@@ -904,19 +705,11 @@
     <div class="status-left">
       <span><span class="status-dot"></span>status: <b style="color:var(--good)">available</b></span>
       <span class="status-meta">
-        <span>experience <b>6+ years</b></span>
-        <span>focus <b>data platforms</b></span>
+        <span>experience <b id="uptime">6+ years</b></span>
+        <span>scale <b>500M+ records/day</b></span>
         <span>base <b>Boston, MA</b></span>
       </span>
     </div>
-
-    <nav class="status-nav" aria-label="Page sections">
-      <a href="#impact">Impact</a>
-      <a href="#work">Work</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
     <div class="status-time" id="clock">— UTC</div>
   </div>
 </div>
@@ -931,7 +724,7 @@
       <span><em>products that ship.</em></span>
     </h1>
     <p class="lede">
-      I build data platforms by first understanding the business process, the source-system behavior, and the product or reporting feature that depends on the data. Then I design pipelines, models, APIs, and release workflows that make those features faster to build, safer to change, and easier to trust.
+      I build data platforms by first understanding the business process, the source-system behavior, and the product or reporting feature that depends on the data. Then I design pipelines, models, APIs, and release workflows that make those features faster to build, safer to change, and easier to trust in production.
     </p>
     <div class="hero-meta">
       <div class="hero-meta-item">
@@ -954,488 +747,513 @@
   </div>
 </header>
 
-<main id="main-content">
-  <!-- ========== Impact metrics ========== -->
-  <section id="impact">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <div class="num">01 / impact</div>
-        <h2>Business outcomes created by data platforms, not just pipelines.</h2>
+<!-- ========== Impact metrics ========== -->
+<section id="impact">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="num">01 / impact</div>
+      <h2>Business outcomes created by data platforms, not just pipelines.</h2>
+    </div>
+
+    <div class="metrics reveal">
+      <div class="metric">
+        <div class="label">Daily data scale</div>
+        <div class="value">500<span class="unit">M+</span></div>
+        <div class="sub">records powering analytics</div>
       </div>
-
-      <div class="metrics reveal">
-        <div class="metric">
-          <div class="label">Daily data scale</div>
-          <div class="value">500<span class="unit">M+</span></div>
-          <div class="sub">records powering analytics</div>
-        </div>
-        <div class="metric">
-          <div class="label">Release SQL reduced</div>
-          <div class="value">97<span class="unit">%</span></div>
-          <div class="sub down">smaller, reviewable deploys</div>
-        </div>
-        <div class="metric">
-          <div class="label">Backfill speed improved</div>
-          <div class="value">−71<span class="unit">%</span></div>
-          <div class="sub down">faster recovery and replay</div>
-        </div>
-        <div class="metric">
-          <div class="label">Tooling cost avoided</div>
-          <div class="value">$50<span class="unit">K</span></div>
-          <div class="sub">direct Snowflake sourcing</div>
-        </div>
+      <div class="metric">
+        <div class="label">Release effort reduced</div>
+        <div class="value">97<span class="unit">%</span></div>
+        <div class="sub down">smaller, reviewable deploys</div>
       </div>
-
-      <div class="arch-intro reveal">
-        <div class="num">↳ operating model</div>
-        <p>I do not start with the pipeline. I start with the feature, report, workflow, or decision the data is supposed to support. That changes the engineering conversation from “move these rows” to “make this capability reliable enough for people to build on.”</p>
+      <div class="metric">
+        <div class="label">Backfill speed improved</div>
+        <div class="value">−71<span class="unit">%</span></div>
+        <div class="sub down">faster recovery and replay</div>
       </div>
-
-      <div class="caps reveal">
-        <div class="cap">
-          <div class="num">/ business</div>
-          <h4>Understand the workflow first</h4>
-          <p>I clarify what the organization is trying to accomplish, who consumes the data, which decisions or product features depend on it, and what correctness means in that context.</p>
-          <div class="tools"><b>Examples</b> · billing rules · carbon calculations · client reporting · operational analytics</div>
-        </div>
-
-        <div class="cap">
-          <div class="num">/ data</div>
-          <h4>Model how the data behaves</h4>
-          <p>I look for the hard parts early: grain, keys, deletes, late-arriving updates, source-system ownership, historical corrections, and the difference between what a field is called and what it actually means.</p>
-          <div class="tools"><b>Patterns</b> · CDC · slowly changing data · auditability · reconciliation · contracts</div>
-        </div>
-
-        <div class="cap">
-          <div class="num">/ platform</div>
-          <h4>Build reusable foundations</h4>
-          <p>I turn repeated asks into shared data products: governed warehouse layers, enrichment APIs, reusable validation, deployment automation, and pipeline templates that other teams can build from.</p>
-          <div class="tools"><b>Outputs</b> · curated models · APIs · batch services · deployment workflows · backfills</div>
-        </div>
-
-        <div class="cap">
-          <div class="num">/ delivery</div>
-          <h4>Ship for feature velocity</h4>
-          <p>The goal is not only to load data successfully. The goal is to help product, analytics, engineering, and operations teams launch features faster because the data layer is understandable, tested, and dependable.</p>
-          <div class="tools"><b>Result</b> · fewer one-off queries · faster releases · clearer ownership · safer change</div>
-        </div>
-      </div>
-
-      <!-- Architectures sub-section -->
-      <div class="arch-intro reveal">
-        <div class="num">↳ systems that enabled product work</div>
-        <p>These are not diagrams for the sake of architecture. Each system exists to make a capability easier to ship: carbon and consumption analytics, governed warehouse models, reusable enrichment, reporting, and operational workflows that need trustworthy data at scale.</p>
-      </div>
-
-      <div class="architectures reveal">
-        <!-- ========== Architecture A: Ellipse AWS ========== -->
-        <div class="arch">
-          <div class="arch-head">
-            <div class="arch-title">Ellipse <em>AWS · ingestion and carbon API platform</em></div>
-            <div class="arch-meta"><span>2023 – 2024</span><span class="status-tag">shipped</span></div>
-          </div>
-          <div class="arch-body">
-            <svg viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg" aria-label="Ellipse AWS architecture">
-              <defs>
-                <marker id="arr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M0,0 L10,5 L0,10 z" fill="#d6f24a"/>
-                </marker>
-                <linearGradient id="flow-a" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#d6f24a" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#d6f24a" stop-opacity="0.55"/>
-                </linearGradient>
-              </defs>
-
-              <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a5c52" letter-spacing="1.2">
-                <text x="20"  y="22">SOURCE</text>
-                <text x="190" y="22">LANDING</text>
-                <text x="370" y="22">EVENT BUS</text>
-                <text x="540" y="22">COMPUTE</text>
-                <text x="730" y="22">STORAGE / API</text>
-                <text x="900" y="22">CONSUMERS</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="20" y="120" width="140" height="40" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="90" y="138" text-anchor="middle">Snowflake</text>
-                <text x="90" y="153" text-anchor="middle" font-size="9.5" fill="#8a8b80">parameterized export</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="190" y="120" width="130" height="40" rx="3" fill="#1f221a" stroke="#d6f24a"/>
-                <text x="255" y="138" text-anchor="middle">S3 buckets</text>
-                <text x="255" y="153" text-anchor="middle" font-size="9.5" fill="#8a8b80">raw landing</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="350" y="100" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="420" y="120" text-anchor="middle">EventBridge</text>
-                <rect x="350" y="148" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="420" y="168" text-anchor="middle">SQS queues</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="520" y="80" width="160" height="32" rx="3" fill="#1f221a" stroke="#d6f24a"/>
-                <text x="600" y="100" text-anchor="middle">Step Functions</text>
-
-                <rect x="520" y="124" width="160" height="32" rx="3" fill="#1f221a" stroke="#d6f24a"/>
-                <text x="600" y="144" text-anchor="middle">Lambdas</text>
-
-                <rect x="520" y="168" width="160" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="600" y="188" text-anchor="middle">Glue (ETL)</text>
-
-                <rect x="520" y="212" width="160" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="600" y="232" text-anchor="middle">Redis cache</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="710" y="60" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="780" y="80" text-anchor="middle">PostgreSQL</text>
-
-                <rect x="710" y="104" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="780" y="124" text-anchor="middle">InfluxDB</text>
-
-                <rect x="710" y="148" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="780" y="168" text-anchor="middle">S3 consolidated</text>
-
-                <rect x="710" y="192" width="140" height="32" rx="3" fill="#1f221a" stroke="#d6f24a"/>
-                <text x="780" y="208" text-anchor="middle">Carbon API</text>
-                <text x="780" y="220" text-anchor="middle" font-size="9.5" fill="#8a8b80">Lambda-backed</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="880" y="80" width="100" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="930" y="100" text-anchor="middle">Power BI</text>
-
-                <rect x="880" y="124" width="100" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="930" y="144" text-anchor="middle">dashboards</text>
-
-                <rect x="880" y="168" width="100" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="930" y="188" text-anchor="middle">client apps</text>
-              </g>
-
-              <g stroke="url(#flow-a)" stroke-width="1.5" fill="none" marker-end="url(#arr-a)">
-                <path d="M 160 140 L 190 140" />
-                <path d="M 320 140 C 335 140, 340 116, 350 116" />
-                <path d="M 320 140 C 335 140, 340 164, 350 164" />
-                <path d="M 490 116 C 505 116, 510 96, 520 96" />
-                <path d="M 490 116 C 505 116, 510 140, 520 140" />
-                <path d="M 490 164 C 505 164, 510 184, 520 184" />
-                <path d="M 490 164 C 505 164, 510 228, 520 228" />
-                <path d="M 680 96  C 695 96,  700 76,  710 76" />
-                <path d="M 680 140 C 695 140, 700 120, 710 120" />
-                <path d="M 680 140 L 710 164" />
-                <path d="M 680 140 C 695 140, 700 208, 710 208" />
-                <path d="M 850 76  C 865 76,  870 96,  880 96" />
-                <path d="M 850 120 L 880 140" />
-                <path d="M 850 208 C 865 208, 870 184, 880 184" />
-              </g>
-
-              <g fill="#d6f24a" class="flow-dots">
-                <circle r="2.4">
-                  <animateMotion dur="3s" repeatCount="indefinite" path="M 160 140 L 190 140 L 320 140 L 350 140 L 490 140 L 520 140 L 680 140 L 710 120 L 850 120 L 880 140" />
-                </circle>
-                <circle r="2.4" opacity="0.55">
-                  <animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M 160 140 L 190 140 L 320 140 L 350 140 L 490 140 L 520 140 L 680 140 L 710 208 L 880 184" />
-                </circle>
-              </g>
-            </svg>
-          </div>
-          <div class="arch-foot">
-            <b>Pattern:</b> Snowflake exports land in S3, EventBridge routes file events into SQS, and Lambdas with Step Functions coordinate downstream processing through Glue. Curated outputs land in PostgreSQL, InfluxDB, and consolidated S3, with a Lambda-backed Carbon API serving derived metrics to reporting tools.
-          </div>
-        </div>
-
-        <!-- ========== Architecture B: Analytical Data Processing ========== -->
-        <div class="arch">
-          <div class="arch-head">
-            <div class="arch-title">Analytical Data Processing <em>Azure and Snowflake · ELT warehouse</em></div>
-            <div class="arch-meta"><span>2024 – present</span><span class="status-tag live">in production</span></div>
-          </div>
-          <div class="arch-body">
-            <svg viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg" aria-label="Azure to Snowflake architecture">
-              <defs>
-                <marker id="arr-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M0,0 L10,5 L0,10 z" fill="#d6f24a"/>
-                </marker>
-                <linearGradient id="flow-b" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#d6f24a" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#d6f24a" stop-opacity="0.55"/>
-                </linearGradient>
-                <linearGradient id="sf-bg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1a1d14"/>
-                  <stop offset="100%" stop-color="#15170f"/>
-                </linearGradient>
-              </defs>
-
-              <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a5c52" letter-spacing="1.2">
-                <text x="20"  y="22">ON-PREM</text>
-                <text x="200" y="22">EXTRACT</text>
-                <text x="350" y="22">RAW BLOB</text>
-                <text x="490" y="22">PROCESSED BLOB</text>
-                <text x="690" y="22">SNOWFLAKE</text>
-                <text x="900" y="22">CONSUMERS</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="20" y="60" width="150" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="95" y="80" text-anchor="middle">MS SQL Server</text>
-
-                <rect x="20" y="104" width="150" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="95" y="124" text-anchor="middle">Oracle</text>
-
-                <rect x="20" y="148" width="150" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="95" y="168" text-anchor="middle">flat-file feeds</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="200" y="100" width="130" height="40" rx="3" fill="#1f221a" stroke="#d6f24a"/>
-                <text x="265" y="118" text-anchor="middle">Azure Data Factory</text>
-                <text x="265" y="132" text-anchor="middle" font-size="9.5" fill="#8a8b80">extract + process</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="360" y="100" width="120" height="40" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="420" y="118" text-anchor="middle">Azure Blob</text>
-                <text x="420" y="132" text-anchor="middle" font-size="9.5" fill="#8a8b80">raw landing</text>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="510" y="100" width="140" height="40" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="580" y="118" text-anchor="middle">Azure Blob</text>
-                <text x="580" y="132" text-anchor="middle" font-size="9.5" fill="#8a8b80">processed files</text>
-              </g>
-
-              <g>
-                <rect x="678" y="44" width="200" height="172" rx="6" fill="url(#sf-bg)" stroke="#d6f24a" stroke-opacity="0.6" stroke-dasharray="3 3"/>
-                <text x="778" y="38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#d6f24a" letter-spacing="0.5">SNOWFLAKE</text>
-
-                <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                  <rect x="694" y="58" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                  <text x="778" y="76" text-anchor="middle">RAW ext. stage</text>
-
-                  <rect x="694" y="94" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                  <text x="778" y="112" text-anchor="middle">STAGE</text>
-
-                  <rect x="694" y="130" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                  <text x="778" y="148" text-anchor="middle">DIM</text>
-
-                  <rect x="694" y="166" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                  <text x="778" y="184" text-anchor="middle">FACT</text>
-                </g>
-
-                <g stroke="#d6f24a" stroke-opacity="0.5" stroke-width="1" fill="none">
-                  <path d="M 778 86 L 778 92" marker-end="url(#arr-b)"/>
-                  <path d="M 778 122 L 778 128" marker-end="url(#arr-b)"/>
-                  <path d="M 778 158 L 778 164" marker-end="url(#arr-b)"/>
-                </g>
-              </g>
-
-              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
-                <rect x="900" y="74" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="945" y="92" text-anchor="middle">REST API</text>
-
-                <rect x="900" y="112" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="945" y="130" text-anchor="middle">views</text>
-
-                <rect x="900" y="150" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="945" y="168" text-anchor="middle">analytics</text>
-
-                <rect x="900" y="188" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
-                <text x="945" y="206" text-anchor="middle">Power BI</text>
-              </g>
-
-              <g stroke="#5a5c52" stroke-width="1" fill="none" stroke-dasharray="3 3">
-                <path d="M 170 76  C 185 76,  195 116, 200 116" />
-                <path d="M 170 120 L 200 120" />
-                <path d="M 170 164 C 185 164, 195 124, 200 124" />
-              </g>
-
-              <g stroke="url(#flow-b)" stroke-width="1.5" fill="none" marker-end="url(#arr-b)">
-                <path d="M 330 120 L 360 120" />
-                <path d="M 420 100 C 420 70, 265 70, 265 100" />
-                <path d="M 330 130 C 420 200, 510 180, 510 130" />
-                <path d="M 650 120 C 670 120, 680 72, 694 72" />
-                <path d="M 862 180 C 880 180, 890 88,  900 88" />
-                <path d="M 862 180 C 880 180, 890 126, 900 126" />
-                <path d="M 862 180 L 900 164" />
-                <path d="M 862 180 C 880 180, 890 202, 900 202" />
-              </g>
-
-              <g fill="#d6f24a" class="flow-dots">
-                <circle r="2.4">
-                  <animateMotion dur="4s" repeatCount="indefinite" path="M 170 120 L 200 120 L 330 120 L 360 120 L 480 120 L 510 120 L 650 120 L 694 72 L 862 72 L 862 180 L 945 88" />
-                </circle>
-                <circle r="2.4" opacity="0.55">
-                  <animateMotion dur="4s" begin="2s" repeatCount="indefinite" path="M 170 120 L 200 120 L 330 120 L 360 120 L 480 120 L 510 120 L 650 120 L 694 72 L 862 72 L 862 180 L 945 164" />
-                </circle>
-              </g>
-            </svg>
-          </div>
-          <div class="arch-foot">
-            <b>Pattern:</b> Azure Data Factory orchestrates extracts from on-prem sources into raw Azure Blob, applies processing into a curated Blob layer, and makes the data available to Snowflake through external stages. Snowflake then loads RAW, Stage, Dim, and Fact layers for APIs, reporting views, analytics, and Power BI.
-          </div>
-        </div>
+      <div class="metric">
+        <div class="label">Tooling cost avoided</div>
+        <div class="value">$50<span class="unit">K</span></div>
+        <div class="sub">direct Snowflake sourcing</div>
       </div>
     </div>
-  </section>
 
-  <!-- ========== Selected Work ========== -->
-  <section id="work">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <div class="num">02 / selected work</div>
-        <h2>Selected work where product needs shaped the engineering design.</h2>
+    <div class="arch-intro reveal">
+      <div class="num">↳ operating model</div>
+      <p>I do not start with the pipeline. I start with the feature, report, workflow, or business decision the data is supposed to support. That changes the engineering conversation from "move these rows" to "make this capability reliable enough for people to build on."</p>
+    </div>
+
+    <div class="caps reveal">
+      <div class="cap">
+        <div class="num">/ business</div>
+        <h4>Understand the workflow first</h4>
+        <p>I clarify what the business is trying to accomplish, who consumes the data, which decisions or product features depend on it, and what correctness means in that context.</p>
+        <div class="tools"><b>Examples</b> · billing rules · carbon calculations · client reporting · operational analytics</div>
       </div>
 
-      <div class="work-list">
-        <article class="work-item reveal">
-          <div class="work-meta">
-            <span class="period">Aug 2023 — present</span>
-            <span class="place">Boston, MA</span>
-          </div>
-          <div class="work-body">
-            <h3>ENGIE Impact</h3>
-            <div class="role">Senior Data Engineer · DEA team</div>
-            <p class="work-summary">At ENGIE Impact, my work sits between <b>business process, product delivery, and platform engineering</b>. The systems I build support billing, carbon accounting, consumption analytics, reporting, and internal data products, so the design work is not only about throughput. It is about understanding how the data is used, where definitions can drift, and how to make changes safe when product requirements evolve.</p>
-            <ul class="achievements">
-              <li>Served as the <b>accountable engineering owner</b> for core data delivery, converting work previously split across an outsourced 7-person team into a focused internal ownership model with clearer requirements, priorities, and production accountability.</li>
-              <li>Built and operated an event-driven AWS ingestion platform processing <b>500M+ records/day</b> into PostgreSQL and InfluxDB, supporting billing, reporting, carbon analytics, and client-facing dashboards used across enterprise accounts.</li>
-              <li>Partnered with product and engineering stakeholders to translate feature needs into data contracts, source-to-target logic, validation rules, and release plans, reducing ambiguity before code was written.</li>
-              <li>Replaced legacy “deploy-everything” Snowflake releases with a manifest-driven, change-only CI/CD process, reducing release SQL from <b>~95K lines to 1.5K–3K lines</b> across 247 files and making data-platform changes easier to review and ship.</li>
-              <li>Proposed and designed direct Snowflake sourcing, helping retire Matillion for <b>$40K–$50K in annual savings</b> while moving teams from rigid once-daily extracts toward more flexible, on-demand access patterns.</li>
-              <li>Designed a CDC-style ingestion pattern with hash-based change detection, reducing reprocessing time from <b>10.5 hours to 3 hours</b> and making backfills, corrections, and late-arriving updates safer to run.</li>
-              <li>Productized FX and geography enrichment through batch REST and GraphQL APIs, turning repeated lookup logic into a shared internal service that product teams could reuse instead of rebuilding one-off Snowflake queries.</li>
-              <li>Modeled Snowflake external stages on Azure Blob with a RAW contract view layer, then used dbt to build Stage, Dim, and Fact models that gave analytics and downstream services a consistent source of truth.</li>
-              <li>Implemented Kafka and Spark ingestion with schema validation, deduplication, and idempotent writes, improving end-to-end performance by <b>30–50%</b> while keeping failure recovery predictable.</li>
-              <li>Unblocked long-running initiatives, including an RDS migration and Unified UOM workstream, by tracing issues across data flows, source behavior, model assumptions, and ownership gaps until the path to release was clear.</li>
-            </ul>
-            <div class="stack">
-              <span>Snowflake</span><span>dbt</span><span>AWS</span><span>Azure DevOps</span>
-              <span>Kafka</span><span>Spark</span><span>Terraform</span><span>Python</span>
-              <span>PostgreSQL</span><span>Liquibase</span>
-            </div>
-          </div>
-        </article>
+      <div class="cap">
+        <div class="num">/ data</div>
+        <h4>Model how the data behaves</h4>
+        <p>I look for the hard parts early: grain, keys, deletes, late-arriving updates, source-system ownership, historical corrections, and the difference between what a field is called and what it actually means.</p>
+        <div class="tools"><b>Patterns</b> · CDC · slowly changing data · auditability · reconciliation · contracts</div>
+      </div>
 
-        <article class="work-item reveal">
-          <div class="work-meta">
-            <span class="period">Sep 2019 — Sep 2021</span>
-            <span class="place">India</span>
-          </div>
-          <div class="work-body">
-            <h3>Technocrat Services</h3>
-            <div class="role">Data Engineer</div>
-            <p class="work-summary">Earlier in my career, I focused on building the fundamentals: dependable ETL, dimensional models, and cloud data processing that gave analysts and operations teams better access to business metrics.</p>
-            <ul class="achievements">
-              <li>Migrated sales ETL workloads from Amazon Redshift to PostgreSQL by redesigning extraction workflows, improving query performance by <b>~50%</b> and cutting pipeline runtime by <b>~60%</b>.</li>
-              <li>Built Airflow, Spark, and SQL pipelines across S3, Athena, Glue, and Redshift, partnering with analysts to model fact and dimension tables that improved operational reporting and reduced waste by <b>~6%</b>.</li>
-            </ul>
-            <div class="stack">
-              <span>Airflow</span><span>Spark</span><span>Redshift</span><span>PostgreSQL</span>
-              <span>S3</span><span>Athena</span><span>Glue</span>
-            </div>
-          </div>
-        </article>
+      <div class="cap">
+        <div class="num">/ platform</div>
+        <h4>Build reusable foundations</h4>
+        <p>I turn repeated asks into shared data products: governed warehouse layers, enrichment APIs, reusable validation, deployment automation, and pipeline templates that other teams can build from.</p>
+        <div class="tools"><b>Outputs</b> · curated models · APIs · batch services · deployment workflows · backfills</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ delivery</div>
+        <h4>Ship for feature velocity</h4>
+        <p>The goal is not only to load data successfully. The goal is to help product, analytics, engineering, and operations teams launch features faster because the data layer is understandable, tested, and dependable.</p>
+        <div class="tools"><b>Result</b> · fewer one-off queries · faster releases · clearer ownership · safer change</div>
       </div>
     </div>
-  </section>
 
-  <!-- ========== Capabilities ========== -->
-  <section id="capabilities">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <div class="num">03 / capabilities</div>
-        <h2>Where I add the most value across product and data teams.</h2>
+    <!-- Architectures sub-section -->
+    <div class="arch-intro reveal">
+      <div class="num">↳ systems that enabled product work</div>
+      <p>These are not diagrams for the sake of architecture. Each system exists to make a business capability easier to ship: carbon and consumption analytics, governed warehouse models, reusable enrichment, reporting, and operational workflows that need trustworthy data at scale.</p>
+    </div>
+
+    <!-- Architecture diagrams: two distinct projects -->
+    <div class="architectures reveal">
+
+      <!-- ========== Architecture A: Ellipse (AWS) ========== -->
+      <div class="arch">
+        <div class="arch-head">
+          <div class="arch-title">Ellipse <em>AWS · ingestion and carbon API platform</em></div>
+          <div class="arch-meta"><span>2023 – 2024</span><span class="status-tag">shipped</span></div>
+        </div>
+        <div class="arch-body">
+          <svg viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg" aria-label="Ellipse AWS architecture">
+            <defs>
+              <marker id="arr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#d6f24a"/>
+              </marker>
+              <linearGradient id="flow-a" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#d6f24a" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#d6f24a" stop-opacity="0.55"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Stage band labels -->
+            <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a5c52" letter-spacing="1.2">
+              <text x="20"  y="22">SOURCE</text>
+              <text x="190" y="22">LANDING</text>
+              <text x="370" y="22">EVENT BUS</text>
+              <text x="540" y="22">COMPUTE</text>
+              <text x="730" y="22">STORAGE / API</text>
+              <text x="900" y="22">CONSUMERS</text>
+            </g>
+
+            <!-- Source: Snowflake -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="20" y="120" width="140" height="40" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="90" y="138" text-anchor="middle">Snowflake</text>
+              <text x="90" y="153" text-anchor="middle" font-size="9.5" fill="#8a8b80">parameterized export</text>
+            </g>
+
+            <!-- S3 landing -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="190" y="120" width="130" height="40" rx="3" fill="#1f221a" stroke="#d6f24a"/>
+              <text x="255" y="138" text-anchor="middle">S3 buckets</text>
+              <text x="255" y="153" text-anchor="middle" font-size="9.5" fill="#8a8b80">raw landing</text>
+            </g>
+
+            <!-- EventBridge + SQS stack -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="350" y="100" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="420" y="120" text-anchor="middle">EventBridge</text>
+              <rect x="350" y="148" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="420" y="168" text-anchor="middle">SQS queues</text>
+            </g>
+
+            <!-- Compute: Step Functions / Lambdas / Glue -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="520" y="80" width="160" height="32" rx="3" fill="#1f221a" stroke="#d6f24a"/>
+              <text x="600" y="100" text-anchor="middle">Step Functions</text>
+
+              <rect x="520" y="124" width="160" height="32" rx="3" fill="#1f221a" stroke="#d6f24a"/>
+              <text x="600" y="144" text-anchor="middle">Lambdas</text>
+
+              <rect x="520" y="168" width="160" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="600" y="188" text-anchor="middle">Glue (ETL)</text>
+
+              <rect x="520" y="212" width="160" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="600" y="232" text-anchor="middle">Redis cache</text>
+            </g>
+
+            <!-- Sinks -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="710" y="60" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="780" y="80" text-anchor="middle">PostgreSQL</text>
+
+              <rect x="710" y="104" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="780" y="124" text-anchor="middle">InfluxDB</text>
+
+              <rect x="710" y="148" width="140" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="780" y="168" text-anchor="middle">S3 (consolidated)</text>
+
+              <rect x="710" y="192" width="140" height="32" rx="3" fill="#1f221a" stroke="#d6f24a"/>
+              <text x="780" y="208" text-anchor="middle">Carbon API</text>
+              <text x="780" y="220" text-anchor="middle" font-size="9.5" fill="#8a8b80">λ-backed</text>
+            </g>
+
+            <!-- Consumers -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="880" y="80" width="100" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="930" y="100" text-anchor="middle">Power BI</text>
+
+              <rect x="880" y="124" width="100" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="930" y="144" text-anchor="middle">dashboards</text>
+
+              <rect x="880" y="168" width="100" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="930" y="188" text-anchor="middle">client apps</text>
+            </g>
+
+            <!-- Connectors -->
+            <g stroke="url(#flow-a)" stroke-width="1.5" fill="none" marker-end="url(#arr-a)">
+              <!-- Snowflake → S3 -->
+              <path d="M 160 140 L 190 140" />
+              <!-- S3 → EventBridge / SQS -->
+              <path d="M 320 140 C 335 140, 340 116, 350 116" />
+              <path d="M 320 140 C 335 140, 340 164, 350 164" />
+              <!-- Event bus → Step Functions / Lambdas / Glue / Redis -->
+              <path d="M 490 116 C 505 116, 510 96, 520 96" />
+              <path d="M 490 116 C 505 116, 510 140, 520 140" />
+              <path d="M 490 164 C 505 164, 510 184, 520 184" />
+              <path d="M 490 164 C 505 164, 510 228, 520 228" />
+              <!-- Compute → Sinks -->
+              <path d="M 680 96  C 695 96,  700 76,  710 76" />
+              <path d="M 680 140 C 695 140, 700 120, 710 120" />
+              <path d="M 680 140 L 710 164" />
+              <path d="M 680 140 C 695 140, 700 208, 710 208" />
+              <!-- Sinks → Consumers -->
+              <path d="M 850 76  C 865 76,  870 96,  880 96" />
+              <path d="M 850 120 L 880 140" />
+              <path d="M 850 208 C 865 208, 870 184, 880 184" />
+            </g>
+
+            <!-- Flow dots (one per major track) -->
+            <g fill="#d6f24a">
+              <circle r="2.4">
+                <animateMotion dur="3s" repeatCount="indefinite"
+                  path="M 160 140 L 190 140 L 320 140 L 350 140 L 490 140 L 520 140 L 680 140 L 710 120 L 850 120 L 880 140" />
+              </circle>
+              <circle r="2.4" opacity="0.55">
+                <animateMotion dur="3s" begin="1.5s" repeatCount="indefinite"
+                  path="M 160 140 L 190 140 L 320 140 L 350 140 L 490 140 L 520 140 L 680 140 L 710 208 L 880 184" />
+              </circle>
+            </g>
+          </svg>
+        </div>
+        <div class="arch-foot">
+          <b>Pattern:</b> Snowflake exports land in S3, EventBridge routes file events into SQS, and Lambdas with Step Functions coordinate downstream processing through Glue. Curated outputs land in PostgreSQL, InfluxDB, and consolidated S3, with a Lambda-backed Carbon API serving derived metrics to reporting tools.
+        </div>
       </div>
 
-      <div class="caps reveal">
-        <div class="cap">
-          <div class="num">/ 01</div>
-          <h4>Business and data translation</h4>
-          <p>I turn vague requirements into concrete data questions: what is the grain, what is the definition, who owns the source, what changes over time, and what needs to be true for the feature to be trusted?</p>
-          <div class="tools"><b>Strengths</b> · requirements · source analysis · definitions · stakeholder alignment</div>
+      <!-- ========== Architecture B: Analytical Data Processing (Azure → Snowflake) ========== -->
+      <div class="arch">
+        <div class="arch-head">
+          <div class="arch-title">Analytical Data Processing <em>Azure and Snowflake · ELT warehouse</em></div>
+          <div class="arch-meta"><span>2024 – present</span><span class="status-tag live">in production</span></div>
         </div>
+        <div class="arch-body">
+          <svg viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg" aria-label="Azure to Snowflake architecture">
+            <defs>
+              <marker id="arr-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#d6f24a"/>
+              </marker>
+              <linearGradient id="flow-b" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#d6f24a" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#d6f24a" stop-opacity="0.55"/>
+              </linearGradient>
+              <!-- Snowflake "container" outline -->
+              <linearGradient id="sf-bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1a1d14"/>
+                <stop offset="100%" stop-color="#15170f"/>
+              </linearGradient>
+            </defs>
 
-        <div class="cap">
-          <div class="num">/ 02</div>
-          <h4>Product-ready data modeling</h4>
-          <p>I design Snowflake and warehouse layers that are usable by applications, APIs, dashboards, and analysts, not just technically normalized. The goal is clear contracts, consistent naming, and models that match how the business works.</p>
-          <div class="tools"><b>Snowflake</b> · <b>dbt</b> · RAW · Stage · Dim · Fact · semantic consistency</div>
+            <!-- Stage band labels -->
+            <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a5c52" letter-spacing="1.2">
+              <text x="20"  y="22">ON-PREM</text>
+              <text x="200" y="22">EXTRACT</text>
+              <text x="350" y="22">RAW BLOB</text>
+              <text x="490" y="22">PROCESSED BLOB</text>
+              <text x="690" y="22">SNOWFLAKE</text>
+              <text x="900" y="22">CONSUMERS</text>
+            </g>
+
+            <!-- On-prem sources -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="20" y="60" width="150" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="95" y="80" text-anchor="middle">MS SQL Server</text>
+
+              <rect x="20" y="104" width="150" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="95" y="124" text-anchor="middle">Oracle</text>
+
+              <rect x="20" y="148" width="150" height="32" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="95" y="168" text-anchor="middle">flat-file feeds</text>
+            </g>
+
+            <!-- ADF orchestrator -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="200" y="100" width="130" height="40" rx="3" fill="#1f221a" stroke="#d6f24a"/>
+              <text x="265" y="118" text-anchor="middle">Azure Data Factory</text>
+              <text x="265" y="132" text-anchor="middle" font-size="9.5" fill="#8a8b80">extract + processed</text>
+            </g>
+
+            <!-- Raw blob -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="360" y="100" width="120" height="40" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="420" y="118" text-anchor="middle">Azure Blob</text>
+              <text x="420" y="132" text-anchor="middle" font-size="9.5" fill="#8a8b80">raw landing</text>
+            </g>
+
+            <!-- Processed blob -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="510" y="100" width="140" height="40" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="580" y="118" text-anchor="middle">Azure Blob</text>
+              <text x="580" y="132" text-anchor="middle" font-size="9.5" fill="#8a8b80">processed (ADF)</text>
+            </g>
+
+            <!-- Snowflake container with internal stages -->
+            <g>
+              <rect x="678" y="44" width="200" height="172" rx="6" fill="url(#sf-bg)" stroke="#d6f24a" stroke-opacity="0.6" stroke-dasharray="3 3"/>
+              <text x="778" y="38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#d6f24a" letter-spacing="0.5">SNOWFLAKE</text>
+
+              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+                <rect x="694" y="58" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+                <text x="778" y="76" text-anchor="middle">RAW (ext. stage)</text>
+
+                <rect x="694" y="94" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+                <text x="778" y="112" text-anchor="middle">STAGE</text>
+
+                <rect x="694" y="130" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+                <text x="778" y="148" text-anchor="middle">DIM</text>
+
+                <rect x="694" y="166" width="168" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+                <text x="778" y="184" text-anchor="middle">FACT</text>
+              </g>
+
+              <!-- internal arrows -->
+              <g stroke="#d6f24a" stroke-opacity="0.5" stroke-width="1" fill="none">
+                <path d="M 778 86 L 778 92" marker-end="url(#arr-b)"/>
+                <path d="M 778 122 L 778 128" marker-end="url(#arr-b)"/>
+                <path d="M 778 158 L 778 164" marker-end="url(#arr-b)"/>
+              </g>
+            </g>
+
+            <!-- Consumers -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ecece4">
+              <rect x="900" y="74" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="945" y="92" text-anchor="middle">REST API</text>
+
+              <rect x="900" y="112" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="945" y="130" text-anchor="middle">views</text>
+
+              <rect x="900" y="150" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="945" y="168" text-anchor="middle">analytics</text>
+
+              <rect x="900" y="188" width="90" height="28" rx="3" fill="#1f221a" stroke="#353930"/>
+              <text x="945" y="206" text-anchor="middle">Power BI</text>
+            </g>
+
+            <!-- ADF orchestrator pulls from sources (dotted control lines) -->
+            <g stroke="#5a5c52" stroke-width="1" fill="none" stroke-dasharray="3 3">
+              <path d="M 170 76  C 185 76,  195 116, 200 116" />
+              <path d="M 170 120 L 200 120" />
+              <path d="M 170 164 C 185 164, 195 124, 200 124" />
+            </g>
+
+            <!-- Data flow lines -->
+            <g stroke="url(#flow-b)" stroke-width="1.5" fill="none" marker-end="url(#arr-b)">
+              <!-- ADF → raw blob -->
+              <path d="M 330 120 L 360 120" />
+              <!-- raw blob ↔ ADF (processed) curve up & back -->
+              <path d="M 420 100 C 420 70, 265 70, 265 100" />
+              <!-- ADF → processed blob -->
+              <path d="M 330 130 C 420 200, 510 180, 510 130" />
+              <!-- processed → Snowflake RAW -->
+              <path d="M 650 120 C 670 120, 680 72, 694 72" />
+              <!-- FACT → consumers -->
+              <path d="M 862 180 C 880 180, 890 88,  900 88" />
+              <path d="M 862 180 C 880 180, 890 126, 900 126" />
+              <path d="M 862 180 L 900 164" />
+              <path d="M 862 180 C 880 180, 890 202, 900 202" />
+            </g>
+
+            <!-- Flow dots -->
+            <g fill="#d6f24a">
+              <circle r="2.4">
+                <animateMotion dur="4s" repeatCount="indefinite"
+                  path="M 170 120 L 200 120 L 330 120 L 360 120 L 480 120 L 510 120 L 650 120 L 694 72 L 862 72 L 862 180 L 945 88" />
+              </circle>
+              <circle r="2.4" opacity="0.55">
+                <animateMotion dur="4s" begin="2s" repeatCount="indefinite"
+                  path="M 170 120 L 200 120 L 330 120 L 360 120 L 480 120 L 510 120 L 650 120 L 694 72 L 862 72 L 862 180 L 945 164" />
+              </circle>
+            </g>
+          </svg>
         </div>
-
-        <div class="cap">
-          <div class="num">/ 03</div>
-          <h4>Incremental ingestion and change handling</h4>
-          <p>I build pipelines that understand change: updates, deletes, late data, replays, reprocessing, and corrections. This is what allows product teams to keep iterating without turning every data change into a production incident.</p>
-          <div class="tools"><b>Patterns</b> · CDC · hashing · dedupe · idempotency · backfills · reconciliation</div>
-        </div>
-
-        <div class="cap">
-          <div class="num">/ 04</div>
-          <h4>Reusable data services</h4>
-          <p>When multiple teams repeat the same lookup, calculation, or enrichment, I prefer turning it into a shared service or governed model. That gives feature teams one dependable path instead of many inconsistent implementations.</p>
-          <div class="tools"><b>APIs</b> · REST · GraphQL · enrichment · reference data · batch services</div>
-        </div>
-
-        <div class="cap">
-          <div class="num">/ 05</div>
-          <h4>Quality, auditability, and recovery</h4>
-          <p>I design validation, quarantine paths, reason-coded errors, logging, and replay behavior into the system from the beginning so teams can explain what happened, fix the data, and recover without guessing.</p>
-          <div class="tools"><b>Controls</b> · Pydantic · validation · observability · lineage · operational support</div>
-        </div>
-
-        <div class="cap">
-          <div class="num">/ 06</div>
-          <h4>Release engineering for data platforms</h4>
-          <p>I make data changes easier to ship by bringing software-engineering discipline into database deployments: manifests, smaller diffs, environment promotion, validation gates, and CI/CD workflows that reduce release risk.</p>
-          <div class="tools"><b>Delivery</b> · Azure DevOps · Terraform · Liquibase · Jenkins · Git · Python tooling</div>
+        <div class="arch-foot">
+          <b>Pattern:</b> Azure Data Factory orchestrates extracts from on-prem sources into raw Azure Blob, applies processing into a curated Blob layer, and makes the data available to Snowflake through external stages. Snowflake then loads RAW, Stage, Dim, and Fact layers for APIs, reporting views, analytics, and Power BI.
         </div>
       </div>
 
-      <div class="tech-stack reveal">
-        <div class="num">/ technical stack</div>
-        <h4>Hands-on stack across warehouse, orchestration, API, infrastructure, and observability layers</h4>
-        <p>This page intentionally leads with outcomes, but the technical foundation spans the tools I use to build, deploy, monitor, and operate production-grade data systems.</p>
-        <div class="tools">
-          <b>Languages</b> · Python · SQL · TypeScript<br>
-          <b>Data platforms</b> · Snowflake · PostgreSQL · MS SQL Server · Oracle · BigQuery · Redshift<br>
-          <b>Data and orchestration</b> · Azure Data Factory · dbt · Airflow · Spark · Kafka<br>
-          <b>Cloud and delivery</b> · AWS · Azure · GCP · Terraform · Jenkins · Azure DevOps · Git · Linux · Liquibase<br>
-          <b>APIs and quality</b> · REST · GraphQL · Pydantic · SQLAlchemy · Postman · Streamlit<br>
-          <b>BI and monitoring</b> · Power BI · Tableau · Grafana
+    </div>
+  </div>
+</section>
+
+<!-- ========== Selected Work ========== -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="num">02 / selected work</div>
+      <h2>Selected work where business context shaped the engineering design.</h2>
+    </div>
+
+    <div class="work-list">
+
+      <article class="work-item reveal">
+        <div class="work-meta">
+          <span class="period">Aug 2023 — present</span>
+          <span class="place">Boston, MA</span>
         </div>
+        <div class="work-body">
+          <h3>ENGIE Impact</h3>
+          <div class="role">Senior Data Engineer · DEA team</div>
+          <p class="work-summary">At ENGIE Impact, my work sits between <b>business process, product delivery, and platform engineering</b>. The systems I build support billing, carbon accounting, consumption analytics, reporting, and internal data products, so the design work is not only about throughput. It is about understanding how the data is used, where definitions can drift, and how to make changes safe when product requirements evolve.</p>
+          <ul class="achievements">
+            <li>Served as the <b>accountable engineering owner</b> for core data delivery, converting work previously split across an outsourced 7-person team into a focused internal ownership model with clearer requirements, priorities, and production accountability.</li>
+            <li>Built and operated an event-driven AWS ingestion platform processing <b>500M+ records/day</b> into PostgreSQL and InfluxDB, supporting billing, reporting, carbon analytics, and client-facing dashboards used across enterprise accounts.</li>
+            <li>Partnered with product and engineering stakeholders to translate feature needs into data contracts, source-to-target logic, validation rules, and release plans, reducing ambiguity before code was written.</li>
+            <li>Replaced legacy "deploy-everything" Snowflake releases with a manifest-driven, change-only CI/CD process, reducing release SQL from <b>~95K lines to 1.5K–3K lines</b> across 247 files and making data-platform changes easier to review and ship.</li>
+            <li>Proposed and designed direct Snowflake sourcing, helping retire Matillion for <b>$40K–$50K in annual savings</b> while moving teams from rigid once-daily extracts toward more flexible, on-demand access patterns.</li>
+            <li>Designed a CDC-style ingestion pattern with hash-based change detection, reducing reprocessing time from <b>10.5 hours to 3 hours</b> and making backfills, corrections, and late-arriving updates safer to run.</li>
+            <li>Productized FX and geography enrichment through batch REST and GraphQL APIs, turning repeated lookup logic into a shared internal service that product teams could reuse instead of rebuilding one-off Snowflake queries.</li>
+            <li>Modeled Snowflake external stages on Azure Blob with a RAW contract view layer, then used dbt to build Stage, Dim, and Fact models that gave analytics and downstream services a consistent source of truth.</li>
+            <li>Implemented Kafka and Spark ingestion with schema validation, deduplication, and idempotent writes, improving end-to-end performance by <b>30–50%</b> while keeping failure recovery predictable.</li>
+            <li>Unblocked long-running initiatives, including an RDS migration and Unified UOM workstream, by tracing issues across data flows, source behavior, model assumptions, and ownership gaps until the path to release was clear.</li>
+          </ul>
+          <div class="stack">
+            <span>Snowflake</span><span>dbt</span><span>AWS</span><span>Azure DevOps</span>
+            <span>Kafka</span><span>Spark</span><span>Terraform</span><span>Python</span>
+            <span>PostgreSQL</span><span>Liquibase</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item reveal">
+        <div class="work-meta">
+          <span class="period">Sep 2019 — Sep 2021</span>
+          <span class="place">India</span>
+        </div>
+        <div class="work-body">
+          <h3>Technocrat Services</h3>
+          <div class="role">Data Engineer</div>
+          <p class="work-summary">Earlier in my career, I focused on building the fundamentals: dependable ETL, dimensional models, and cloud data processing that gave analysts and operations teams better access to business metrics.</p>
+          <ul class="achievements">
+            <li>Migrated sales ETL workloads from Amazon Redshift to PostgreSQL by redesigning extraction workflows, improving query performance by <b>~50%</b> and cutting pipeline runtime by <b>~60%</b>.</li>
+            <li>Built Airflow, Spark, and SQL pipelines across S3, Athena, Glue, and Redshift, partnering with analysts to model fact and dimension tables that improved operational reporting and reduced waste by <b>~6%</b>.</li>
+          </ul>
+          <div class="stack">
+            <span>Airflow</span><span>Spark</span><span>Redshift</span><span>PostgreSQL</span>
+            <span>S3</span><span>Athena</span><span>Glue</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== Capabilities ========== -->
+<section id="capabilities">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="num">03 / capabilities</div>
+      <h2>Where I add the most value across product and data teams.</h2>
+    </div>
+
+    <div class="caps reveal">
+      <div class="cap">
+        <div class="num">/ 01</div>
+        <h4>Business and data translation</h4>
+        <p>I turn vague requirements into concrete data questions: what is the grain, what is the business definition, who owns the source, what changes over time, and what needs to be true for the feature to be trusted?</p>
+        <div class="tools"><b>Strengths</b> · requirements · source analysis · definitions · stakeholder alignment</div>
       </div>
 
-      <div class="philosophy reveal">
-        <blockquote>
-          The best data platform is not just stable.<br>
-          It makes the next <em>feature, report, API, or decision</em> easier to ship.
-        </blockquote>
-        <div class="attrib">— engineering principle</div>
+      <div class="cap">
+        <div class="num">/ 02</div>
+        <h4>Product-ready data modeling</h4>
+        <p>I design Snowflake and warehouse layers that are usable by applications, APIs, dashboards, and analysts, not just technically normalized. The goal is clear contracts, consistent naming, and models that match how the business works.</p>
+        <div class="tools"><b>Snowflake</b> · <b>dbt</b> · RAW · Stage · Dim · Fact · semantic consistency</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ 03</div>
+        <h4>Incremental ingestion and change handling</h4>
+        <p>I build pipelines that understand change: updates, deletes, late data, replays, reprocessing, and corrections. This is what allows product teams to keep iterating without turning every data change into a production incident.</p>
+        <div class="tools"><b>Patterns</b> · CDC · hashing · dedupe · idempotency · backfills · reconciliation</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ 04</div>
+        <h4>Reusable data services</h4>
+        <p>When multiple teams repeat the same lookup, calculation, or enrichment, I prefer turning it into a shared service or governed model. That gives feature teams one dependable path instead of many inconsistent implementations.</p>
+        <div class="tools"><b>APIs</b> · REST · GraphQL · enrichment · reference data · batch services</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ 05</div>
+        <h4>Quality, auditability, and recovery</h4>
+        <p>I design validation, quarantine paths, reason-coded errors, logging, and replay behavior into the system from the beginning so teams can explain what happened, fix the data, and recover without guessing.</p>
+        <div class="tools"><b>Controls</b> · Pydantic · validation · observability · lineage · operational support</div>
+      </div>
+
+      <div class="cap">
+        <div class="num">/ 06</div>
+        <h4>Release engineering for data platforms</h4>
+        <p>I make data changes easier to ship by bringing software-engineering discipline into database deployments: manifests, smaller diffs, environment promotion, validation gates, and CI/CD workflows that reduce release risk.</p>
+        <div class="tools"><b>Delivery</b> · Azure DevOps · Terraform · Liquibase · Jenkins · Git · Python tooling</div>
       </div>
     </div>
-  </section>
 
-  <!-- ========== Contact ========== -->
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <div class="section-header reveal" style="border-top: none; padding-top: 0; margin-bottom: 56px;">
-        <div class="num">04 / contact</div>
-        <h2 style="font-size: clamp(28px, 3vw, 36px);">Open to senior data engineering roles where platform work supports product, analytics, and business outcomes.</h2>
-      </div>
-      <div class="contact-grid reveal">
-        <h2>Let’s <em>build useful data.</em></h2>
-        <div class="links">
-          <a href="mailto:abhijitrk97@gmail.com"><span>email</span><span>abhijitrk97@gmail.com →</span></a>
-          <a href="https://www.linkedin.com/in/abhijitrk" target="_blank" rel="noopener"><span>linkedin</span><span>/in/abhijitrk →</span></a>
-          <a href="https://github.com/abhijitrk97" target="_blank" rel="noopener"><span>github</span><span>@abhijitrk97 →</span></a>
-          <a href="Abhijit_Kunjiraman_Resume.docx" download><span>resume</span><span>.docx →</span></a>
-        </div>
+    <div class="philosophy reveal">
+      <blockquote>
+        The best data platform is not just stable.<br>
+        It makes the next <em>feature, report, API, or decision</em> easier to ship.
+      </blockquote>
+      <div class="attrib">— engineering principle</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Contact ========== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-header reveal" style="border-top: none; padding-top: 0; margin-bottom: 56px;">
+      <div class="num">04 / contact</div>
+      <h2 style="font-size: clamp(28px, 3vw, 36px);">Open to senior data engineering roles where data platform work directly supports product, analytics, and business outcomes.</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <h2>Let’s <em>build useful data.</em></h2>
+      <div class="links">
+        <a href="mailto:abhijitrk97@gmail.com"><span>email</span><span>abhijitrk97@gmail.com →</span></a>
+        <a href="tel:+18572505275"><span>phone</span><span>+1 (857) 250-5275 →</span></a>
+        <a href="https://www.linkedin.com/in/abhijitrk" target="_blank" rel="noopener"><span>linkedin</span><span>/in/abhijitrk →</span></a>
+        <a href="https://github.com/abhijitrk97" target="_blank" rel="noopener"><span>github</span><span>@abhijitrk97 →</span></a>
+        <a href="Abhijit_Kunjiraman_Resume.pdf" download><span>resume</span><span>.pdf →</span></a>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
@@ -1445,8 +1263,8 @@
 </footer>
 
 <script>
+  // Live UTC clock in status bar
   const clockEl = document.getElementById('clock');
-
   function tick() {
     const d = new Date();
     const hh = String(d.getUTCHours()).padStart(2, '0');
@@ -1454,20 +1272,20 @@
     const ss = String(d.getUTCSeconds()).padStart(2, '0');
     clockEl.textContent = `${hh}:${mm}:${ss} UTC`;
   }
-
   tick();
   setInterval(tick, 1000);
 
+  // Scroll-reveal observer
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>
